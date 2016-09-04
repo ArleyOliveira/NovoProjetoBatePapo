@@ -80,6 +80,35 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @group legacy
+     */
+    public function testLoadUserByUsernameWithUserProviderRepositoryAndWithoutProperty()
+    {
+        $user = new User(1, 1, 'user1');
+
+        $repository = $this->getMockBuilder('Symfony\Component\Security\Core\User\UserProviderInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $repository
+            ->expects($this->once())
+            ->method('loadUserByUsername')
+            ->with('user1')
+            ->willReturn($user);
+
+        $em = $this->getMockBuilder('Doctrine\ORM\EntityManager')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $em
+            ->expects($this->once())
+            ->method('getRepository')
+            ->with('Symfony\Bridge\Doctrine\Tests\Fixtures\User')
+            ->willReturn($repository);
+
+        $provider = new EntityUserProvider($this->getManager($em), 'Symfony\Bridge\Doctrine\Tests\Fixtures\User');
+        $this->assertSame($user, $provider->loadUserByUsername('user1'));
+    }
+
+    /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage You must either make the "Symfony\Bridge\Doctrine\Tests\Fixtures\User" entity Doctrine Repository ("Doctrine\ORM\EntityRepository") implement "Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface" or set the "property" option in the corresponding entity provider configuration.
      */

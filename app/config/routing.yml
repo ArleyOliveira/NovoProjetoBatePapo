@@ -1,3 +1,4 @@
-app:
-    resource: "@AppBundle/Controller/"
+bate_papo_base:
+    resource: "@BatePapoBaseBundle/Controller"
     type:     annotation
+    prefix:   /

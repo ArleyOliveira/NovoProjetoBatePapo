@@ -44,7 +44,10 @@ class ClassCollectionLoader
         self::$loaded[$name] = true;
 
         if ($adaptive) {
-            $declared = array_merge(get_declared_classes(), get_declared_interfaces(), get_declared_traits());
+            $declared = array_merge(get_declared_classes(), get_declared_interfaces());
+            if (function_exists('get_declared_traits')) {
+                $declared = array_merge($declared, get_declared_traits());
+            }
 
             // don't include already declared classes
             $classes = array_diff($classes, $declared);
@@ -90,7 +93,10 @@ class ClassCollectionLoader
             return;
         }
         if (!$adaptive) {
-            $declared = array_merge(get_declared_classes(), get_declared_interfaces(), get_declared_traits());
+            $declared = array_merge(get_declared_classes(), get_declared_interfaces());
+            if (function_exists('get_declared_traits')) {
+                $declared = array_merge($declared, get_declared_traits());
+            }
         }
 
         $files = array();
@@ -292,10 +298,12 @@ class ClassCollectionLoader
 
         $traits = array();
 
-        foreach ($classes as $c) {
-            foreach (self::resolveDependencies(self::computeTraitDeps($c), $c) as $trait) {
-                if ($trait !== $c) {
-                    $traits[] = $trait;
+        if (method_exists('ReflectionClass', 'getTraits')) {
+            foreach ($classes as $c) {
+                foreach (self::resolveDependencies(self::computeTraitDeps($c), $c) as $trait) {
+                    if ($trait !== $c) {
+                        $traits[] = $trait;
+                    }
                 }
             }
         }
