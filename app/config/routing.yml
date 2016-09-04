@@ -2,3 +2,6 @@ bate_papo_base:
     resource: "@BatePapoBaseBundle/Controller"
     type:     annotation
     prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

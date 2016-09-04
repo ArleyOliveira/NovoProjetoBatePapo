@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Misd\GuzzleBundle\MisdGuzzleBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
