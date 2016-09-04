@@ -4,11 +4,15 @@ namespace BatePapo\BaseBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use BatePapo\BaseBundle\Validator\Constraints as AssertBaseBundle;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="BatePapo\BaseBundle\Repository\UserRepository")
+ * @UniqueEntity(fields="cpf", message="user.unique")
  */
 class User extends BaseUser
 {
@@ -20,7 +24,38 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var DateTime
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(message="user.black_name")
+     */
+    private $name;
+
+    /**
+     * @var \DateTime $dateBirth
+     * @ORM\Column(type="datetime", nullable=true, name="date_birth")
+     * @Assert\NotBlank(message="user.black_date_birth")
+     */
+    private $dateBirth;
+
+    /**
+     * @var string
+     * @ORM\Column(name="cpf", type="string", length=14, nullable=true)
+     * @Assert\NotBlank(message="user.blank_cpf")
+     * @AssertBaseBundle\CpfCnpj(cpf=true)
+     */
+    private $cpf;
+
+
+    /**
+     * @var string
+     * @Assert\NotBlank(message="user.blank_sexy")
+     * @ORM\Column(type="string", length=1)
+     */
+    private $sexy;
+
+    /**
+     * @var \DateTime
      *
      * @ORM\Column(name="created", type="date")
      */
@@ -44,7 +79,9 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-
+        $this->active = true;
+        $this->updated = new \DateTime('now');
+        $this->created = new \DateTime('now');
     }
 
     /**
@@ -116,6 +153,78 @@ class User extends BaseUser
     public function setUpdated($updated)
     {
         $this->updated = $updated;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateBirth()
+    {
+        return $this->dateBirth;
+    }
+
+    /**
+     * @param \DateTime $dateBirth
+     * @return User
+     */
+    public function setDateBirth($dateBirth)
+    {
+        $this->dateBirth = $dateBirth;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+
+    /**
+     * @param string $cpf
+     * @return User
+     */
+    public function setCpf($cpf)
+    {
+        $this->cpf = $cpf;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSexy()
+    {
+        return $this->sexy;
+    }
+
+    /**
+     * @param string $sexy
+     * @return User
+     */
+    public function setSexy($sexy)
+    {
+        $this->sexy = $sexy;
         return $this;
     }
 

@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -81,9 +81,9 @@ knp_paginator:
 mopa_bootstrap:
     form:
         show_legend: false # default is true
-        show_child_legend: false # default is true
+        show_child_legend: true # default is true
         error_type: block # or inline which is default
-        checkbox_label: 'widget' # default is both (label|widget|both)
+        checkbox_label: widget # default is both (label|widget|both)
         render_optional_text: false
 
 security:

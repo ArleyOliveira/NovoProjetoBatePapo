@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{{ asset('bundles/batepapobase/libs/metisMenu/metisMenu.min.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ asset('bundles/batepapobase/libs/template/css/sb-admin-2.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ asset('bundles/batepapobase/libs/morrisjs/morris.css') }}" type="text/css"/>
+    <link rel="stylesheet"
+          href="{{ asset('bundles/batepapobase/libs//bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}"
+          type="text/css"/>
     <link rel="stylesheet" href="{{ asset('bundles/batepapobase/libs/font-awesome/css/font-awesome.min.css') }}"
           type="text/css"/>
 
@@ -28,13 +31,14 @@
 </head>
 <body>
 
-    <div id="wrapper">
-        {% include 'BatePapoBaseBundle::Layout/default.html.twig' %}
-
+<div id="wrapper">
+    {% include 'BatePapoBaseBundle::Layout/default.html.twig' %}
+    <div id="page-wrapper">
         {% block body %}
 
         {% endblock %}
     </div>
+</div>
 
 <script src="{{ asset('bundles/batepapobase/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('bundles/batepapobase/libs/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -43,6 +47,11 @@
 <script src="{{ asset('bundles/batepapobase/libs/morrisjs/morris.min.js') }}"></script>
 <script src="{{ asset('bundles/batepapobase/libs/data/morris-data.js') }}"></script>
 <script src="{{ asset('bundles/batepapobase/libs/template/js/sb-admin-2.js') }}"></script>
+<script src="{{ asset('bundles/batepapobase/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('bundles/batepapobase/libs/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js') }}"></script>
+<script src="{{ asset('bundles/batepapobase/libs/jquey-mask/jquery.mask.min.js') }}"></script>
+<script src="{{ asset('bundles/batepapobase/libs/jquey-mask/jquery.maskMoney.min.js') }}"></script>
+<script src="{{ asset('bundles/batepapobase/scripts/app_form.js') }}"></script>
 <script>
     var baseUrl = window.location.origin;
 </script>
