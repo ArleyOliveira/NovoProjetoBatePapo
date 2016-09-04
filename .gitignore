@@ -1,5 +1,6 @@
 /web/bundles/
 /vendor/
+/var/
 /app/bootstrap.php.cache
 /app/cache/
 /app/config/parameters.yml
@@ -8,6 +9,7 @@
 !app/logs/.gitkeep
 /app/phpunit.xml
 .idea/workspace.xml
+.idea/*
 /build/
 /bin/
 /composer.phar
