@@ -15,8 +15,8 @@ class __TwigTemplate_dedc042883ab368543726550c3988a4c9186edf5c85a7012dee9e77162b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2b98679ac1bcea6a207e5c588a75f21fc143f1273aa4f3ba560c48d788ab3d45 = $this->env->getExtension("native_profiler");
-        $__internal_2b98679ac1bcea6a207e5c588a75f21fc143f1273aa4f3ba560c48d788ab3d45->enter($__internal_2b98679ac1bcea6a207e5c588a75f21fc143f1273aa4f3ba560c48d788ab3d45_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BatePapoBaseBundle::Layout/default.html.twig"));
+        $__internal_18d200964ee502ca621bda16cb74aacac8f8a514ea36c43b8f42cf0322d26267 = $this->env->getExtension("native_profiler");
+        $__internal_18d200964ee502ca621bda16cb74aacac8f8a514ea36c43b8f42cf0322d26267->enter($__internal_18d200964ee502ca621bda16cb74aacac8f8a514ea36c43b8f42cf0322d26267_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "BatePapoBaseBundle::Layout/default.html.twig"));
 
         // line 1
         echo "<!-- Navigation -->
@@ -266,7 +266,7 @@ class __TwigTemplate_dedc042883ab368543726550c3988a4c9186edf5c85a7012dee9e77162b
     <!-- /.navbar-static-side -->
 </nav>";
         
-        $__internal_2b98679ac1bcea6a207e5c588a75f21fc143f1273aa4f3ba560c48d788ab3d45->leave($__internal_2b98679ac1bcea6a207e5c588a75f21fc143f1273aa4f3ba560c48d788ab3d45_prof);
+        $__internal_18d200964ee502ca621bda16cb74aacac8f8a514ea36c43b8f42cf0322d26267->leave($__internal_18d200964ee502ca621bda16cb74aacac8f8a514ea36c43b8f42cf0322d26267_prof);
 
     }
 

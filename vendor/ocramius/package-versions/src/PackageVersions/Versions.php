@@ -102,7 +102,7 @@ final class Versions
   'zetacomponents/document' => '1.3.1@688abfde573cf3fe0730f82538fbd7aa9fc95bc8',
   'sensio/generator-bundle' => 'v3.0.7@d1be460925376703a470a3ac6ec034eb7eab3892',
   'symfony/phpunit-bridge' => 'v3.1.4@1f4e2059cf4ecae1053b9c3027b3fc548fd077b9',
-  'arley/bate.papo' => 'dev-criacao_layout@9eac574a953a049e0bd585f35aad4d47db1b5a0c',
+  'arley/bate.papo' => 'dev-criacao_layout@af7ec54448f9c32322d1712e46d24437d115bcf3',
 );
 
     private function __construct()

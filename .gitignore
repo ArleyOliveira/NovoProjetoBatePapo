@@ -8,7 +8,7 @@
 /app/phpunit.xml
 .idea/workspace.xml
 /build/
-/vendor/
+/vendor/*
 /bin/
 /composer.phar
 /composer.lock
