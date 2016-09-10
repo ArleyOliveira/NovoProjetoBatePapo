@@ -1,8 +1,8 @@
 <?php
 
-namespace BatePapo\BaseBundle\Form;
+namespace BatePapo\UserBundle\Form;
 
-use BatePapo\BaseBundle\Entity\User;
+use BatePapo\UserBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;

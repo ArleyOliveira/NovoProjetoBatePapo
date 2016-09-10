@@ -1,6 +1,6 @@
 <?php
 
-namespace BatePapo\BaseBundle\Repository;
+namespace BatePapo\UserBundle\Repository;
 
 
 use Doctrine\ORM\EntityRepository;

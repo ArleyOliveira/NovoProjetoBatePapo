@@ -1,7 +1,8 @@
 <?php
 
-namespace BatePapo\BaseBundle\Entity;
+namespace BatePapo\UserBundle\Entity;
 
+use DateTime;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,11 +12,15 @@ use BatePapo\BaseBundle\Validator\Constraints as AssertBaseBundle;
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="BatePapo\BaseBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="BatePapo\UserBundle\Repository\UserRepository")
  * @UniqueEntity(fields="cpf", message="user.unique")
  */
 class User extends BaseUser
 {
+
+    const USER_DEFAULT = 'USER_DEFAULT';
+    const USER_ADMIN = 'USER_ADMIN';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")

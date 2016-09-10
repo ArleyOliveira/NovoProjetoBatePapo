@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
  * @package BatePapo\BaseBundle\Controller
  *
  * @Template()
- * @Route("/default")
+ * @Route("/")
  */
 class DefaultController extends Controller
 {
@@ -27,4 +27,39 @@ class DefaultController extends Controller
             'name' => 'Arley',
         ];
     }
+
+    /**
+     * @Route("/about", name="default_about")
+     * @Method("GET")
+     */
+    public function aboutAction()
+    {
+        return [
+            ""
+        ];
+    }
+
+    /**
+     * @Route("/organization", name="default_organization")
+     * @Method("GET")
+     */
+    public function organizationAction()
+    {
+        return [
+            ""
+        ];
+    }
+
+    /**
+     * @Route("/join-us", name="default_join_us")
+     * @Method("GET")
+     */
+    public function joinUsAction()
+    {
+        return [
+            ""
+        ];
+    }
+
+
 }

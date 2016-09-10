@@ -1,32 +1,35 @@
 <?php
 
-namespace BatePapo\BaseBundle\Controller;
+namespace BatePapo\UserBundle\Controller;
 
-use BatePapo\BaseBundle\Entity\User;
-use BatePapo\BaseBundle\Form\UserType;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
+use BatePapo\UserBundle\Entity\User;
+use BatePapo\UserBundle\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
-
-
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 /**
- * Class UserController
- * @package BatePapo\BaseBundle\Controller
+ * User controller.
  *
- * @Template()
  * @Route("/user")
  */
 class UserController extends Controller
 {
-
-    public function indexAction($name)
+    /**
+     * @Template()
+     * @Route("/", name="user_index")
+     */
+    public function indexAction()
     {
-        return $this->render('', array('name' => $name));
+
+        return new Response('<html><body>Hello!</body></html>');
     }
 
     /**
+     * @Template()
      * @Route("/new", name="user_new")
      * @Method({"GET", "POST"})
      */
@@ -40,11 +43,11 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             try {
-
+                $user->setRoles(['ROLE_DEFAULT']);
+                $user->setEnabled(true);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();
-
                 $this->addSuccessMessage('user.new.success');
 
             } catch (\Exception $e) {
@@ -54,6 +57,8 @@ class UserController extends Controller
             return $this->redirectToRoute('default_index');
         }
 
+
+        
         return array(
             'user' => $user,
             'form' => $form->createView()

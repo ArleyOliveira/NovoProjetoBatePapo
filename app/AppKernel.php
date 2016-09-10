@@ -16,6 +16,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new BatePapo\BaseBundle\BatePapoBaseBundle(),
+            new BatePapo\UserBundle\BatePapoUserBundle(),
 
             // Bundles extra
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),

@@ -119,4 +119,4 @@ security:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: BatePapo\BaseBundle\Entity\User
+    user_class: BatePapo\UserBundle\Entity\User
